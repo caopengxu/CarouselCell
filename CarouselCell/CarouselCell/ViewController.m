@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "CarouselCell.h"
 
-@interface ViewController () <CarouselCellDelegate>
+@interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
@@ -28,37 +28,33 @@
 #pragma mark === <UITableViewDataSource, UITableViewDelegate>
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 10;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.1;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CarouselCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
-    cell.delegate = self;
     [cell.timer invalidate];
-    [cell addImage];
+    [cell addImageSetCount:5 Height:150];
+    cell.completion = ^(NSInteger page){
+        
+        // 跳转到下一个控制器
+        NSLog(@"%ld", (long)page);
+    };
     
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 150;
-}
-
-
-
-#pragma mark ==== <CarouselCellDelegate>
-- (NSInteger)carouselCellSetPageCount
-{
-    return 5;
-}
-- (NSInteger)carouselCellSetImageHeight
-{
-    return 150;
-}
-- (void)carouselCellClickBtn:(UIButton *)btn pageNum:(NSInteger)page
-{
-    // 跳转到下一个控制器
 }
 
 

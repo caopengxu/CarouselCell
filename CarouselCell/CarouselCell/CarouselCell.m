@@ -11,8 +11,8 @@
 
 @interface CarouselCell () <UIScrollViewDelegate>
 {
-    NSInteger _pageCount;
-    NSInteger _imageHeight;
+    int _pageCount;
+    int _imageHeight;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *myScroll;
 @property (weak, nonatomic) IBOutlet UIPageControl *myPageControl;
@@ -23,13 +23,10 @@
 @implementation CarouselCell
 
 #pragma mark === 添加图片
-- (void)addImage
+- (void)addImageSetCount:(int)count Height:(int)height
 {
-    if ([self.delegate respondsToSelector:@selector(carouselCellSetPageCount)] && [self.delegate respondsToSelector:@selector(carouselCellSetImageHeight)])
-    {
-        _pageCount = [self.delegate carouselCellSetPageCount];
-        _imageHeight = [self.delegate carouselCellSetImageHeight];
-    }
+    _pageCount = count;
+    _imageHeight = height;
     
     self.myPageControl.currentPage = 0;
     [self.myScroll setContentOffset:CGPointMake(__screenWidth, 0)];
@@ -66,9 +63,9 @@
 #pragma mark === 图片的点击
 - (void)imageClick:(UIButton *)btn
 {
-    if ([self.delegate respondsToSelector:@selector(carouselCellClickBtn:pageNum:)])
+    if (self.completion)
     {
-        [self.delegate carouselCellClickBtn:btn pageNum:btn.tag];
+        self.completion(btn.tag);
     }
 }
 
