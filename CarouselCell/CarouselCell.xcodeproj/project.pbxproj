@@ -416,6 +416,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CarouselCell/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cpx.CarouselCell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -427,6 +428,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CarouselCell/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cpx.CarouselCell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -498,6 +500,7 @@
 				CA1841241D499D2C001F6FCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CA1841251D499D2C001F6FCA /* Build configuration list for PBXNativeTarget "CarouselCellTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +509,7 @@
 				CA1841271D499D2C001F6FCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CA1841281D499D2C001F6FCA /* Build configuration list for PBXNativeTarget "CarouselCellUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +518,7 @@
 				CA18412A1D499D2C001F6FCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

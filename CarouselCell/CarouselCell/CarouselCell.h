@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CarouselCell : UITableViewCell
-@property (nonatomic, strong) NSTimer *timer;
 - (void)addImageSetCount:(int)count Height:(int)height;
 @property (nonatomic, copy) void (^completion) (NSInteger age);
 @end
