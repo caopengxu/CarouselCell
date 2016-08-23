@@ -76,23 +76,6 @@
 #pragma mark === 开启时钟
 - (void)startTimer
 {
-//    self.timer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
-//    // 添加到运行循环
-//    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
-    
-    // 执行一次的操作
-    /*
-    double delayInSeconds = 2.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^{
-        
-        [self updateTimer];
-    });
-     */
-    
-    
-    
-    
     // 获得队列
     dispatch_queue_t queue = dispatch_get_main_queue();
     
@@ -115,17 +98,6 @@
     
     // 启动定时器
     dispatch_resume(self.timer);
-    
-    
-    
-//    NSTimeInterval period = 1.0; //设置时间间隔
-//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//    dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-//    dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), period * NSEC_PER_SEC, 0); //每秒执行5
-//    dispatch_source_set_event_handler(_timer, ^{
-//        
-//    });
-//    dispatch_resume(_timer);
 }
 #pragma mark === 图片向后滑一页
 - (void)updateTimer

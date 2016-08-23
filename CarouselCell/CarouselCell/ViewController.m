@@ -20,7 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"CarouselCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
 }
 
 
@@ -45,10 +44,6 @@
     // 防止上下滚动Cell时图片有时候会卡在中间位置的问题
     NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"CarouselCell" owner:nil options:nil];
     CarouselCell *cell = [array lastObject];
-    
-//    while (cell.contentView.subviews) {
-//        <#statements#>
-//    }
     
     [cell addImageSetCount:5 Height:150];
     cell.completion = ^(NSInteger page){
