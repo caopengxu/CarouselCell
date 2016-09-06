@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "CarouselCell.h"
+#import "CarouselView.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -20,43 +20,55 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+    view.backgroundColor = [UIColor grayColor];
+    _tableView.tableHeaderView = view;
+    
 }
 
 
 
 #pragma mark === <UITableViewDataSource, UITableViewDelegate>
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 10;
 }
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 0.1;
+    return 150;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     return 0.1;
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;
 {
-//    CarouselCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    
-    // 防止上下滚动Cell时图片有时候会卡在中间位置的问题
-    NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"CarouselCell" owner:nil options:nil];
-    CarouselCell *cell = [array lastObject];
-    
-    [cell addImageSetCount:5 Height:150];
-    cell.completion = ^(NSInteger page){
+    NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"Carousel" owner:nil options:nil];
+    CarouselView *view = [array lastObject];
+    [view addImageSetCount:5 Height:150];
+    view.completion = ^(NSInteger page){
         
         // 跳转到下一个控制器
         NSLog(@"%ld", (long)page);
     };
     
+    return view;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    
+    cell.textLabel.text = @"测试专用";
+    
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 150;
+    return 45;
 }
 
 

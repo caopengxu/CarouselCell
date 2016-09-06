@@ -1,16 +1,16 @@
 //
-//  ScrollCell.m
-//  scroll
+//  CarouselView.m
+//  CarouselCell
 //
-//  Created by 曹鹏旭 on 16/1/4.
-//  Copyright © 2016年 cdbsj. All rights reserved.
+//  Created by 曹鹏旭 on 16/9/6.
+//  Copyright © 2016年 cpx. All rights reserved.
 //
 
-#import "CarouselCell.h"
+#import "CarouselView.h"
 
 #define __screenWidth [UIScreen mainScreen].bounds.size.width
 
-@interface CarouselCell ()
+@interface CarouselView () <UIScrollViewDelegate>
 {
     int _pageCount;
     int _imageHeight;
@@ -22,7 +22,7 @@
 
 
 
-@implementation CarouselCell
+@implementation CarouselView
 
 #pragma mark === 添加图片
 - (void)addImageSetCount:(int)count Height:(int)height
@@ -41,19 +41,21 @@
     {
         if (i == 0)
         {
-            imageName = [NSString stringWithFormat:@"img_%d", _pageCount - 1];
+            imageName = [NSString stringWithFormat:@"img_0%d.png", _pageCount - 1];
         }
         else if (i == (_pageCount + 1))
         {
-            imageName = @"img_0";
+            imageName = @"img_01.png";
         }
         else
         {
-            imageName = [NSString stringWithFormat:@"img_%d", i - 1];
+            imageName = [NSString stringWithFormat:@"img_0%d.png", i - 1];
         }
         
         UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(__screenWidth * i, 0, __screenWidth, _imageHeight)];
-        [btn setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:imageName ofType:nil];
+        [btn setBackgroundImage:[UIImage imageWithContentsOfFile:path] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(imageClick:) forControlEvents:UIControlEventTouchUpInside];
         btn.tag = i;
         
