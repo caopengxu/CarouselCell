@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *myScroll;
 @property (weak, nonatomic) IBOutlet UIPageControl *myPageControl;
 @property (nonatomic, strong) dispatch_source_t timer;
+@property (nonatomic, strong) NSString *imageName;
 @end
 
 
@@ -36,26 +37,24 @@
     self.myScroll.contentSize = CGSizeMake((_pageCount + 2) * __screenWidth, 0);
     self.myPageControl.numberOfPages = _pageCount;
     
-    NSString *imageName = [[NSString alloc] init];
     for (int i = 0; i < (_pageCount + 2); i++)
     {
         if (i == 0)
         {
-            imageName = [NSString stringWithFormat:@"img_0%d.png", _pageCount - 1];
+            _imageName = [NSString stringWithFormat:@"img_0%d", _pageCount - 1];
         }
         else if (i == (_pageCount + 1))
         {
-            imageName = @"img_01.png";
+            _imageName = @"img_00";
         }
         else
         {
-            imageName = [NSString stringWithFormat:@"img_0%d.png", i - 1];
+            _imageName = [NSString stringWithFormat:@"img_0%d", i - 1];
         }
         
         UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(__screenWidth * i, 0, __screenWidth, _imageHeight)];
         
-        NSString *path = [[NSBundle mainBundle] pathForResource:imageName ofType:nil];
-        [btn setBackgroundImage:[UIImage imageWithContentsOfFile:path] forState:UIControlStateNormal];
+        [btn setBackgroundImage:[UIImage imageNamed:_imageName] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(imageClick:) forControlEvents:UIControlEventTouchUpInside];
         btn.tag = i;
         
@@ -89,7 +88,7 @@
     // 何时开始执行第一个任务
     // dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC) 比当前时间晚3秒
     dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
-    uint64_t interval = (uint64_t)(1.0 * NSEC_PER_SEC);
+    uint64_t interval = (uint64_t)(2.0 * NSEC_PER_SEC);
     dispatch_source_set_timer(self.timer, start, interval, 0);
     
     // 设置回调

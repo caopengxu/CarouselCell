@@ -49,7 +49,7 @@
 {
     NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"Carousel" owner:nil options:nil];
     CarouselView *view = [array lastObject];
-    [view addImageSetCount:5 Height:150];
+    [view addImageSetCount:3 Height:150];
     view.completion = ^(NSInteger page){
         
         // 跳转到下一个控制器
