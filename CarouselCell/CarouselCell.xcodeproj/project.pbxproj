@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF29A52020EA02990070522E /* MyLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF29A51F20EA02990070522E /* MyLayer.m */; };
+		BF29A52620EA46170070522E /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF29A52520EA46170070522E /* TestController.m */; };
+		BF29A52820EA46200070522E /* TestController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF29A52720EA46200070522E /* TestController.storyboard */; };
 		CA1840FA1D499D2B001F6FCA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1840F91D499D2B001F6FCA /* main.m */; };
 		CA1840FD1D499D2B001F6FCA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1840FC1D499D2B001F6FCA /* AppDelegate.m */; };
 		CA1841051D499D2B001F6FCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA1841041D499D2B001F6FCA /* Assets.xcassets */; };
@@ -43,6 +46,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF29A51E20EA02990070522E /* MyLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLayer.h; sourceTree = "<group>"; };
+		BF29A51F20EA02990070522E /* MyLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyLayer.m; sourceTree = "<group>"; };
+		BF29A52420EA46170070522E /* TestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestController.h; sourceTree = "<group>"; };
+		BF29A52520EA46170070522E /* TestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestController.m; sourceTree = "<group>"; };
+		BF29A52720EA46200070522E /* TestController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestController.storyboard; sourceTree = "<group>"; };
 		CA1840F51D499D2B001F6FCA /* CarouselCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarouselCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA1840F91D499D2B001F6FCA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CA1840FB1D499D2B001F6FCA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -124,9 +132,14 @@
 				CA18412E1D499E5C001F6FCA /* ViewController.h */,
 				CA18412F1D499E5C001F6FCA /* ViewController.m */,
 				CA1841331D499E69001F6FCA /* Main.storyboard */,
+				BF29A52420EA46170070522E /* TestController.h */,
+				BF29A52520EA46170070522E /* TestController.m */,
+				BF29A52720EA46200070522E /* TestController.storyboard */,
 				CA9AE0AE1D7EBE63009059D6 /* CarouselView.h */,
 				CA9AE0AF1D7EBE63009059D6 /* CarouselView.m */,
 				CA9AE0B11D7EBE76009059D6 /* Carousel.xib */,
+				BF29A51E20EA02990070522E /* MyLayer.h */,
+				BF29A51F20EA02990070522E /* MyLayer.m */,
 				CA1841041D499D2B001F6FCA /* Assets.xcassets */,
 				CA1841061D499D2B001F6FCA /* LaunchScreen.storyboard */,
 				CA1841091D499D2B001F6FCA /* Info.plist */,
@@ -241,6 +254,7 @@
 				TargetAttributes = {
 					CA1840F41D499D2B001F6FCA = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = WGX7CRRVZ2;
 					};
 					CA18410D1D499D2C001F6FCA = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -285,6 +299,7 @@
 				CA4E24051D7ECB6E00E397B8 /* img_02@3x.png in Resources */,
 				CA4E24001D7ECB6E00E397B8 /* img_00@2x.png in Resources */,
 				CA1841051D499D2B001F6FCA /* Assets.xcassets in Resources */,
+				BF29A52820EA46200070522E /* TestController.storyboard in Resources */,
 				CA9AE0B21D7EBE76009059D6 /* Carousel.xib in Resources */,
 				CA1841341D499E69001F6FCA /* Main.storyboard in Resources */,
 			);
@@ -312,6 +327,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA1840FD1D499D2B001F6FCA /* AppDelegate.m in Sources */,
+				BF29A52620EA46170070522E /* TestController.m in Sources */,
+				BF29A52020EA02990070522E /* MyLayer.m in Sources */,
 				CA1840FA1D499D2B001F6FCA /* main.m in Sources */,
 				CA1841321D499E5C001F6FCA /* ViewController.m in Sources */,
 				CA9AE0B01D7EBE63009059D6 /* CarouselView.m in Sources */,
@@ -447,8 +464,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WGX7CRRVZ2;
 				INFOPLIST_FILE = CarouselCell/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cpx.CarouselCell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -459,8 +477,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WGX7CRRVZ2;
 				INFOPLIST_FILE = CarouselCell/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cpx.CarouselCell;
 				PRODUCT_NAME = "$(TARGET_NAME)";

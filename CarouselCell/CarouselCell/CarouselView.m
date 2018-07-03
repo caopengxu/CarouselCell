@@ -8,7 +8,7 @@
 
 #import "CarouselView.h"
 
-#define __screenWidth [UIScreen mainScreen].bounds.size.width
+#define __ScreenWidth [UIScreen mainScreen].bounds.size.width
 
 @interface CarouselView () <UIScrollViewDelegate>
 {
@@ -31,10 +31,10 @@
     _pageCount = count;
     _imageHeight = height;
     
-    [self.myScroll setContentOffset:CGPointMake(__screenWidth, 0)];
+    [self.myScroll setContentOffset:CGPointMake(__ScreenWidth, 0)];
     self.myPageControl.currentPage = 0;
     
-    self.myScroll.contentSize = CGSizeMake((_pageCount + 2) * __screenWidth, 0);
+    self.myScroll.contentSize = CGSizeMake((_pageCount + 2) * __ScreenWidth, 0);
     self.myPageControl.numberOfPages = _pageCount;
     
     for (int i = 0; i < (_pageCount + 2); i++)
@@ -52,7 +52,7 @@
             _imageName = [NSString stringWithFormat:@"img_0%d", i - 1];
         }
         
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(__screenWidth * i, 0, __screenWidth, _imageHeight)];
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(__ScreenWidth * i, 0, __ScreenWidth, _imageHeight)];
         
         [btn setBackgroundImage:[UIImage imageNamed:_imageName] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(imageClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -109,14 +109,14 @@
     
     if (page == 0)
     {
-        CGFloat x = (_pageCount + 1) * __screenWidth;
+        CGFloat x = (_pageCount + 1) * __ScreenWidth;
         [self.myScroll setContentOffset:CGPointMake(x, 0) animated:YES];
         
         [self.myScroll setContentOffset:CGPointMake(0, 0)];
     }
     else
     {
-        CGFloat x = (self.myPageControl.currentPage + 1) * __screenWidth;
+        CGFloat x = (self.myPageControl.currentPage + 1) * __ScreenWidth;
         [self.myScroll setContentOffset:CGPointMake(x, 0) animated:YES];
     }
 }
@@ -154,12 +154,12 @@
     
     if (page == 0)
     {
-        [self.myScroll setContentOffset:CGPointMake(__screenWidth * _pageCount, 0)];
+        [self.myScroll setContentOffset:CGPointMake(__ScreenWidth * _pageCount, 0)];
         self.myPageControl.currentPage = _pageCount - 1;
     }
     else if (page == _pageCount + 1)
     {
-        [self.myScroll setContentOffset:CGPointMake(__screenWidth, 0)];
+        [self.myScroll setContentOffset:CGPointMake(__ScreenWidth, 0)];
         self.myPageControl.currentPage = 0;
     }
     else
